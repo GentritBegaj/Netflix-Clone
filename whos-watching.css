@@ -1,0 +1,58 @@
+/* g fonts */
+/* @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;700&display=swap'); */
+/* fonts */
+:root {
+  /* font family */
+  /* --ffamily-primary: 'Work Sans', sans-serif; */
+  /* --ffamily-primary: 'Poppins', sans-serif; */
+  /* --ffamily-primary: 'Roboto', sans-serif; */
+  --ffamily-primary: 'Open Sans', sans-serif;
+  --ffamily-secondary: 'Source Code Pro', monospace;
+}
+:root {
+  --clr-dark: #303030;
+  --clr-light: #f8f8f8;
+
+  /* --fs-body: 1rem; */
+  /* --fw-reg: 300; */
+  /* --fw-bold: 900; */
+
+  --backdrop-color: rgba(255, 255, 255, 0.3);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* html { 
+  background: url(images/bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
+
+/* *,
+*::after,
+*::before {
+  box-sizing: border-box;
+} */
+
+body {
+  background: #141414;
+  color: #fff;
+  font-family: var(--ff-primary);
+  /* font-size: var(--fs-body); */
+  /* line-height: 1.6; */
+  height: 100vh;
+}
+
+.backdrop-blur {
+  background-color: var(--backdrop-color);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
