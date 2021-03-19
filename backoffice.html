@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="backoffice.css" />
+
+    <title>BackOffice</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top mb-5">
+      <a class="navbar-brand" href="index.html"
+        ><img
+          src="./images/logo.svg"
+          alt="netflix-logo"
+          width="160px"
+          height="40px"
+      /></a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon bg-light"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" style="color: #838287" href="index.html"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link active" href="#"
+              >BackOffice <span class="sr-only">(current)</span></a
+            >
+          </li>
+        </ul>
+        <div class="mr-3">
+          <ul class="navbar-nav mr-auto">
+            <li class="dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <img
+                  src="https://occ-0-2835-2774.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABYnnca7HCf0z4YHtIK5R8MIGCeMyodAsxBYSBmMkYHqjSw46VWWyNQirfwxT-CkbxPkp-G84Wu-iOMwGG-r9QAs.png?r=f71"
+                  alt=""
+                />
+              </a>
+              <div
+                class="dropdown-menu dropdown-menu-right bg-dark"
+                aria-labelledby="navbarDropdown"
+              >
+                <a class="dropdown-item text-white" href="edit-profile.html"
+                  >Edit Profile</a
+                >
+                <a class="dropdown-item text-white" href="#">Another action</a>
+                <!-- <div class="dropdown-divider"></div> -->
+                <a class="dropdown-item text-white" href="#"
+                  >Something else here</a
+                >
+              </div>
+            </li>
+          </ul>
+          <!--  -->
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6 offset-md-3">
+            <h2 id="pageHeading">Add movies to the main page</h2>
+            <form onsubmit="submitHandler(event)">
+              <div class="form-group">
+                <label for="name">Movie name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  aria-describedby="movieName"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea
+                  class="form-control"
+                  id="description"
+                  rows="4"
+                  required
+                >
+                </textarea>
+              </div>
+              <div class="form-group">
+                <label for="category">Category:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="category"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="imageURL">Image URL:</label>
+                <input
+                  type="text"
+                  id="imageURL"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="row mt-5">
+          <div class="col-12 col-md-6 offset-md-3">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">ID:</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Category</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    -->
+    <script>
+      const url = "https://striveschool-api.herokuapp.com/api/movies";
+      let id;
+      window.onload = async () => {
+        let params = new URLSearchParams(window.location.search);
+        id = params.get("id");
+        const response = await fetch(url, {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
+          },
+        });
+        const data = await response.json();
+        if (data.length > 0) {
+          let tbody = document.querySelector("tbody");
+          console.log(data);
+          data.forEach((movie) => {
+            tbody.innerHTML += `<tr>
+                                        <th scope="row">${movie._id}</th>
+                                        <td>${movie.name}</td>
+                                        <td>${movie.category}</td>
+                                    </tr>`;
+          });
+        }
+        const response1 = await fetch(`${url}/Drama`, {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
+          },
+        });
+        const data1 = await response1.json();
+        console.log(data1);
+        const response2 = await fetch(`${url}/Comedy`, {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
+          },
+        });
+        const data2 = await response2.json();
+        console.log(data2);
+        const response3 = await fetch(`${url}/Adventure`, {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
+          },
+        });
+        const data3 = await response3.json();
+        console.log(data3);
+        const response4 = await fetch(`${url}/Action`, {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
+          },
+        });
+        const data4 = await response4.json();
+        console.log(data4);
+      };
+
+      const submitHandler = async (e) => {
+        e.preventDefault();
+
+        let myBodyObject = {
+          name: document.getElementById("name").value,
+          description: document.getElementById("description").value,
+          category: document.getElementById("category").value,
+          imageUrl: document.getElementById("imageURL").value,
+        };
+
+        const response = await fetch(url, {
+          method: "POST",
+          body: JSON.stringify(myBodyObject),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
+          },
+        });
+
+        if (response.ok) {
+          alert("Movie added successfully");
+          name = document.getElementById("name").value = "";
+          description = document.getElementById("description").value = "";
+          category = document.getElementById("category").value = "";
+          imageURL = document.getElementById("imageURL").value = "";
+          window.location.assign("backoffice.html");
+        } else {
+          alert("There was a problem adding the movie");
+        }
+      };
+    </script>
+  </body>
+</html>

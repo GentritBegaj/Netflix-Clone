@@ -1,3 +1,38 @@
 body {
   background: #f3f3f3;
 }
+
+.navbar-wrapper {
+  height: 70px;
+  background: #000;
+  box-sizing: border-box;
+  padding: 10px 30px;
+}
+
+.left-nav li {
+  list-style: none;
+}
+
+.dropdown-photo {
+  border-radius: 10%;
+}
+
+.img {
+  position: relative;
+  display: block;
+  flex: 1 1 0px;
+  transition: transform 500ms;
+}
+
+img:focus,
+img:hover {
+  transform: scale(1.5);
+  z-index: 1;
+}
+
+.carousel-control-next {
+  margin-right: -90px;
+}
+.carousel-control-prev {
+  margin-left: -90px;
+}
