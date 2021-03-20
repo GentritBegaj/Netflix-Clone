@@ -179,63 +179,90 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
     -->
     <script>
-      const url = "https://striveschool-api.herokuapp.com/api/movies";
+      const url = "https://striveschool-api.herokuapp.com/api/movies/";
       let id;
+
       window.onload = async () => {
         let params = new URLSearchParams(window.location.search);
         id = params.get("id");
-        const response = await fetch(url, {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
-          },
-        });
-        const data = await response.json();
-        if (data.length > 0) {
-          let tbody = document.querySelector("tbody");
-          console.log(data);
-          data.forEach((movie) => {
-            tbody.innerHTML += `<tr>
-                                        <th scope="row">${movie._id}</th>
-                                        <td>${movie.name}</td>
-                                        <td>${movie.category}</td>
-                                    </tr>`;
-          });
+        let category = params.get("category");
+        if (id) {
+          let heading = document.getElementById("pageHeading");
+          heading.textContent = "Edit movie:";
+          fetch(
+            `https://striveschool-api.herokuapp.com/api/movies/${category}`,
+            {
+              headers: {
+                Authorization:
+                  "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
+              },
+            }
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              const movieToEdit = data.filter((movie) => movie._id === id);
+              document.getElementById("name").value = movieToEdit[0].name;
+              document.getElementById("description").value =
+                movieToEdit[0].description;
+              document.getElementById("category").value =
+                movieToEdit[0].category;
+              document.getElementById("imageURL").value =
+                movieToEdit[0].imageUrl;
+            });
         }
-        const response1 = await fetch(`${url}/Drama`, {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
-          },
-        });
-        const data1 = await response1.json();
-        console.log(data1);
-        const response2 = await fetch(`${url}/Comedy`, {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
-          },
-        });
-        const data2 = await response2.json();
-        console.log(data2);
-        const response3 = await fetch(`${url}/Adventure`, {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
-          },
-        });
-        const data3 = await response3.json();
-        console.log(data3);
-        const response4 = await fetch(`${url}/Action`, {
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
-          },
-        });
-        const data4 = await response4.json();
-        console.log(data4);
-      };
 
+        // const response = await fetch(url, {
+        //   headers: {
+        //     Authorization:
+        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
+        //   },
+        // });
+
+        // const data = await response.json();
+        // if (data.length > 0) {
+        //   let tbody = document.querySelector("tbody");
+        //   console.log(data);
+        //   data.forEach((movie) => {
+        //     tbody.innerHTML += `<tr>
+        //                                 <th scope="row">${movie._id}</th>
+        //                                 <td>${movie.name}</td>
+        //                                 <td>${movie.category}</td>
+        //                             </tr>`;
+        //   });
+        // }
+        // const response1 = await fetch(`${url}/Drama`, {
+        //   headers: {
+        //     Authorization:
+        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
+        //   },
+        // });
+        // const data1 = await response1.json();
+        // console.log(data1);
+        // const response2 = await fetch(`${url}/Comedy`, {
+        //   headers: {
+        //     Authorization:
+        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
+        //   },
+        // });
+        // const data2 = await response2.json();
+        // console.log(data2);
+        // const response3 = await fetch(`${url}/Adventure`, {
+        //   headers: {
+        //     Authorization:
+        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
+        //   },
+        // });
+        // const data3 = await response3.json();
+        // console.log(data3);
+        // const response4 = await fetch(`${url}/Action`, {
+        //   headers: {
+        //     Authorization:
+        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
+        //   },
+        // });
+        // const data4 = await response4.json();
+        // console.log(data4);
+      };
       const submitHandler = async (e) => {
         e.preventDefault();
 
@@ -246,8 +273,8 @@
           imageUrl: document.getElementById("imageURL").value,
         };
 
-        const response = await fetch(url, {
-          method: "POST",
+        const response = await fetch(id ? url + id : url, {
+          method: id ? "PUT" : "POST",
           body: JSON.stringify(myBodyObject),
           headers: {
             "Content-Type": "application/json",
@@ -257,7 +284,11 @@
         });
 
         if (response.ok) {
-          alert("Movie added successfully");
+          if (id) {
+            alert("Movie edited successfully");
+          } else {
+            alert("Movie created successfully");
+          }
           name = document.getElementById("name").value = "";
           description = document.getElementById("description").value = "";
           category = document.getElementById("category").value = "";
