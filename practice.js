@@ -34,93 +34,43 @@ window.onload = async () => {
   const data = await response.json();
 
   console.log(data);
-  data.forEach((category, idx) => {
-    let mainDiv = document.getElementById("main-div");
-    mainDiv.innerHTML += `<div id="image-slider${idx}" class="splide">
-                                  <div class="splide__track">
-                                      <ul class="splide__list splideList${idx}">
-                                      </ul>
-                                  </div>
-                              </div>`;
 
-    fetch(`${url}/${category}`, {
-      headers: {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
-      },
+  let mainDiv = document.getElementById("main-div");
+  mainDiv.innerHTML += `<div id="image-slider" class="splide">
+                            <div class="splide__track">
+                                <ul class="splide__list">
+                                </ul>
+                            </div>
+                        </div>`;
+  fetch(`${url}/${data[0]}`, {
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
+    },
+  })
+    .then((response1) => response1.json())
+    .then((data1) => {
+      console.log(data1);
+      let carouselList = document.querySelector(".splide__list");
+      data1.forEach((movie) => {
+        carouselList.innerHTML += ` <li class="splide__slide"><img src="${movie.imageUrl}"></li>`;
+        new Splide("#image-slider", {
+          perPage: 6,
+          pagination: false,
+          perMove: 1,
+          breakpoints: {
+            800: {
+              perPage: 4,
+            },
+            640: {
+              perPage: 2,
+            },
+            480: {
+              perPage: 1,
+            },
+          },
+        }).mount();
+      });
     })
-      .then((response1) => response1.json())
-      .then((data1) => {
-        console.log(data1);
-        let carouselList = document.querySelector(`.splideList${idx}`);
-        data1.forEach((movie) => {
-          carouselList.innerHTML += ` <li class="splide__slide"><img src="${movie.imageUrl}"></li>`;
-        });
-      })
-      .catch((err) => console.log(err));
-  });
-  new Splide(`#image-slider0`, {
-    perPage: 6,
-    perMove: 1,
-    pagination: false,
-    breakpoints: {
-      800: {
-        perPage: 4,
-      },
-      640: {
-        perPage: 2,
-      },
-      480: {
-        perPage: 1,
-      },
-    },
-  }).mount();
-  new Splide(`#image-slider1`, {
-    perPage: 6,
-    perMove: 1,
-    pagination: false,
-    breakpoints: {
-      800: {
-        perPage: 4,
-      },
-      640: {
-        perPage: 2,
-      },
-      480: {
-        perPage: 1,
-      },
-    },
-  }).mount();
-  new Splide(`#image-slider2`, {
-    perPage: 6,
-    perMove: 1,
-    pagination: false,
-    breakpoints: {
-      800: {
-        perPage: 4,
-      },
-      640: {
-        perPage: 2,
-      },
-      480: {
-        perPage: 1,
-      },
-    },
-  }).mount();
-  new Splide(`#image-slider3`, {
-    perPage: 6,
-    perMove: 1,
-    pagination: false,
-    breakpoints: {
-      800: {
-        perPage: 4,
-      },
-      640: {
-        perPage: 2,
-      },
-      480: {
-        perPage: 1,
-      },
-    },
-  }).mount();
+    .catch((err) => console.log(err));
 };
