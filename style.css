@@ -4,6 +4,11 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 .navbar {
   background-color: transparent;
 }
@@ -67,43 +72,11 @@ footer h6 {
   margin-top: 25px;
 }
 
-/* .row {
-  overflow: hidden;
-} */
-
 .row img:focus,
 .row img:hover {
   transform: scale(1.2);
   z-index: 1;
 }
-
-/* .carousel {
-  position: relative;
-}
-
-.carousel-control-next {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  position: absolute;
-  bottom: 50px;
-  right: 0;
-  transform: translateY(50%);
-}
-
-.carousel-control-prev {
-  padding: 0;
-  margin: 0;
-  display: inline-block;
-  position: absolute;
-  bottom: 50px;
-  left: 0;
-  transform: translateY(50%);
-} */
-
-/* .category-heading {
-  padding-left: 50px;
-} */
 
 .backdrop-blur {
   background-color: rgba(0, 0, 0, 0.686);

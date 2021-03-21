@@ -274,7 +274,13 @@
                                   <td>${movie.name}</td>
                                   <td><i id="${
                                     movie._id
-                                  }" onclick="deleteMovie(event)" class="fas fa-trash delete-button"></i></td>`;
+                                  }" onclick="deleteMovie(event)" class="fas fa-trash delete-button mr-2"></i>
+                                  <a href="backoffice.html?id=${
+                                    movie._id
+                                  }&category=${
+                movie.category
+              }"><i class="fas fa-edit"></i></a>
+                                  </td>`;
             });
           });
       };
