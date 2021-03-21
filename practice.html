@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css"
+    />
+    <link rel="stylesheet" href="practice.css" />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/7e4e45b727.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Netflix</title>
+  </head>
+
+  <body>
+    <header>
+      <!------------------------------------Navbar-------------------------->
+
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-transparent">
+        <a class="navbar-brand" href="#"
+          ><img
+            src="./images/logo.svg"
+            alt="netflix-logo"
+            width="160px"
+            height="40px"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Series</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Films</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">New & Popular</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">My List</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="backoffice.html">BackOffice</a>
+            </li>
+          </ul>
+          <div class="mr-3">
+            <ul class="navbar-nav mr-auto">
+              <li>
+                <a href="#">
+                  <i
+                    class="fas fa-search bg-transparent text-light mx-3 mt-3"
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i
+                    class="fas fa-gift bg-transparent text-light mx-3 mt-3"
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i
+                    class="fas fa-bell bg-transparent text-light mx-3 mt-3"
+                  ></i>
+                </a>
+              </li>
+
+              <li class="dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <img
+                    src="https://occ-0-2835-2774.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABYnnca7HCf0z4YHtIK5R8MIGCeMyodAsxBYSBmMkYHqjSw46VWWyNQirfwxT-CkbxPkp-G84Wu-iOMwGG-r9QAs.png?r=f71"
+                    alt=""
+                  />
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-right bg-dark"
+                  aria-labelledby="navbarDropdown"
+                >
+                  <a class="dropdown-item text-white" href="edit-profile.html"
+                    >Edit Profile</a
+                  >
+                  <a class="dropdown-item text-white" href="#"
+                    >Another action</a
+                  >
+                  <!-- <div class="dropdown-divider"></div> -->
+                  <a class="dropdown-item text-white" href="#"
+                    >Something else here</a
+                  >
+                </div>
+              </li>
+            </ul>
+            <!--  -->
+          </div>
+        </div>
+      </nav>
+
+      <div id="header-text">
+        <p class="text-light ml-1">
+          A dying man makes a desperate bid to save his family.<br />
+          But in the meth trade, there are fates far worse than death
+        </p>
+        <button type="button" class="btn btn-lg mx-1 play-button">
+          <i class="fas fa-play"></i>
+          Play
+        </button>
+        <button type="button" class="btn btn-lg btn-info text-light mx-1">
+          <i class="fas fa-info-circle"></i>
+          More info
+        </button>
+      </div>
+    </header>
+
+    <div class="my-4">
+      <div id="main-div" class="container-fluid"></div>
+    </div>
+
+    <footer>
+      <div class="container-fluid mb-5">
+        <div class="row ml-4">
+          <div class="col">
+            <a href="facebook.com"
+              ><i
+                class="fab mr-3 fa-2x fa-facebook-square bg-transparent text-dark"
+              ></i
+            ></a>
+            <a href="instagram"
+              ><i
+                class="fab mr-3 fa-2x fa-instagram-square bg-transparent text-dark"
+              ></i
+            ></a>
+            <a href="youtube.com"
+              ><i class="fab mr-3 fa-2x fa-youtube bg-transparent text-dark"></i
+            ></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-3">
+            <ul>
+              <a class="text-dark" href="#">
+                <li>Audio and Subtitles</li>
+              </a>
+              <a class="text-dark" href="#">
+                <li>Media Centre</li>
+              </a>
+              <a class="text-dark" href="#">
+                <li>Privacy</li>
+              </a>
+              <a class="text-dark" href="#">
+                <li>Contact Us</li>
+              </a>
+            </ul>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3">
+            <ul>
+              <a class="text-dark" href="#">
+                <li>Audio Description</li>
+              </a>
+              <a class="text-dark" href="#">
+                <li>Investor Relations</li>
+              </a>
+              <a class="text-dark" href="#">
+                <li>Legal Notices</li>
+              </a>
+            </ul>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3">
+            <ul>
+              <a class="text-dark" href="#">
+                <li>Help Centre</li>
+              </a>
+              <a class="text-dark" href="#">
+                <li>Jobs</li>
+              </a>
+              <a class="text-dark" href="#">
+                <li>Cookie Preferences</li>
+              </a>
+            </ul>
+          </div>
+          <div class="col-12 col-sm-6 col-md-3">
+            <ul>
+              <a class="text-dark" href="#">
+                <li>Gift Cards</li>
+              </a>
+              <a class="text-dark" href="#">
+                <li>Terms of Use</li>
+              </a>
+              <a class="text-dark" href="#">
+                <li>Corporate Information</li>
+              </a>
+            </ul>
+          </div>
+          <div class="col">
+            <button class="service-code">Service Code</button><br />
+            <h6>© 1997-2021 Netflix, Inc. {i-08f0134f19a7965f3}</h6>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="practice.js"></script>
+  </body>
+</html>

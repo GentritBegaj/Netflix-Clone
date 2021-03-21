@@ -101,6 +101,10 @@ footer h6 {
   transform: translateY(50%);
 } */
 
+.glider {
+  display: flex;
+}
+
 /* .category-heading {
   padding-left: 50px;
 } */
