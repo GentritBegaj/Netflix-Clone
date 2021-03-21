@@ -8,6 +8,13 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+      integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu"
+      crossorigin="anonymous"
+    />
+
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -143,17 +150,23 @@
 
         <div class="row mt-5">
           <div class="col-12 col-md-6 offset-md-3">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">ID:</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Category</th>
-                </tr>
-              </thead>
-              <tbody></tbody>
-            </table>
+            <select id="main-select" class="custom-select">
+              <option selected disabled>Select Category</option>
+              <!-- <option value="1">One</option> -->
+            </select>
           </div>
+        </div>
+        <div class="row my-5">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>ID:</th>
+                <th>Name</th>
+                <th class="text-right"></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
         </div>
       </div>
     </main>
@@ -181,6 +194,23 @@
     <script>
       const url = "https://striveschool-api.herokuapp.com/api/movies/";
       let id;
+
+      const deleteMovie = async (e) => {
+        let movieID = e.target.id;
+        const response = await fetch(`${url}${movieID}`, {
+          method: "DELETE",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
+          },
+        });
+        if (response.ok) {
+          alert("Movie deleted successfully");
+          e.target.closest("tr").remove();
+        } else {
+          alert("There was a problem deleting the movie");
+        }
+      };
 
       window.onload = async () => {
         let params = new URLSearchParams(window.location.search);
@@ -211,58 +241,47 @@
             });
         }
 
-        // const response = await fetch(url, {
-        //   headers: {
-        //     Authorization:
-        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
-        //   },
-        // });
-
-        // const data = await response.json();
-        // if (data.length > 0) {
-        //   let tbody = document.querySelector("tbody");
-        //   console.log(data);
-        //   data.forEach((movie) => {
-        //     tbody.innerHTML += `<tr>
-        //                                 <th scope="row">${movie._id}</th>
-        //                                 <td>${movie.name}</td>
-        //                                 <td>${movie.category}</td>
-        //                             </tr>`;
-        //   });
-        // }
-        // const response1 = await fetch(`${url}/Drama`, {
-        //   headers: {
-        //     Authorization:
-        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
-        //   },
-        // });
-        // const data1 = await response1.json();
-        // console.log(data1);
-        // const response2 = await fetch(`${url}/Comedy`, {
-        //   headers: {
-        //     Authorization:
-        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
-        //   },
-        // });
-        // const data2 = await response2.json();
-        // console.log(data2);
-        // const response3 = await fetch(`${url}/Adventure`, {
-        //   headers: {
-        //     Authorization:
-        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
-        //   },
-        // });
-        // const data3 = await response3.json();
-        // console.log(data3);
-        // const response4 = await fetch(`${url}/Action`, {
-        //   headers: {
-        //     Authorization:
-        //       "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
-        //   },
-        // });
-        // const data4 = await response4.json();
-        // console.log(data4);
+        fetch(`${url}`, {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            data.forEach((category) => {
+              let mainSelect = document.querySelector("#main-select");
+              mainSelect.innerHTML += `<option value="${category}">${category}</option>`;
+            });
+          });
       };
+
+      const handleSelectMenu = () => {
+        let categorySelected = document.querySelector("#main-select").value;
+        // console.log(categorySelected);
+        fetch(`${url}${categorySelected}`, {
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            let tbody = document.querySelector("tbody");
+            tbody.innerHTML = "";
+            data.forEach((movie, idx) => {
+              tbody.innerHTML += `<th scope="row">${idx + 1}</th>
+                                  <td>${movie.name}</td>
+                                  <td><i id="${
+                                    movie._id
+                                  }" onclick="deleteMovie(event)" class="fas fa-trash delete-button"></i></td>`;
+            });
+          });
+      };
+      document
+        .querySelector("#main-select")
+        .addEventListener("change", handleSelectMenu);
+
       const submitHandler = async (e) => {
         e.preventDefault();
 
