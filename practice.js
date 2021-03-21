@@ -36,13 +36,15 @@ window.onload = async () => {
   console.log(data);
 
   let mainDiv = document.getElementById("main-div");
-  mainDiv.innerHTML += `<div id="image-slider" class="splide">
+  data.forEach((category,index)=>{ mainDiv.innerHTML += `<div id="image-slider-${index}" class="splide">
                             <div class="splide__track">
-                                <ul class="splide__list">
+                                <ul class="splide__list list__${index}">
                                 </ul>
                             </div>
-                        </div>`;
-  fetch(`${url}/${data[0]}`, {
+                        </div>`
+                        
+                        
+  fetch(`${url}/${category}`, {
     headers: {
       Authorization:
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDU0N2I4NGVjNWEzNTAwMTU0MGQ2ZGYiLCJpYXQiOjE2MTYxNDkzODEsImV4cCI6MTYxNzM1ODk4MX0.A6mOfd_ng0V_z_rWBgKlV2ZDFYuNtNeA1Yt47EYvveo",
@@ -51,10 +53,13 @@ window.onload = async () => {
     .then((response1) => response1.json())
     .then((data1) => {
       console.log(data1);
-      let carouselList = document.querySelector(".splide__list");
+      let carouselList = document.querySelector(`.list__${index}`);
+            
       data1.forEach((movie) => {
         carouselList.innerHTML += ` <li class="splide__slide"><img src="${movie.imageUrl}"></li>`;
-        new Splide("#image-slider", {
+
+
+         new Splide(`#image-slider-${index}`, {
           perPage: 6,
           pagination: false,
           perMove: 1,
@@ -70,7 +75,9 @@ window.onload = async () => {
             },
           },
         }).mount();
+ 
       });
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(err))})  
+ 
 };
